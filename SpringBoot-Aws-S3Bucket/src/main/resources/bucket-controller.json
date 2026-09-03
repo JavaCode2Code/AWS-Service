@@ -1,0 +1,100 @@
+{
+  "controller": "BucketController",
+  "basePath": "/s3bucket",
+  "crossOrigin": "*",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/add/{bucketName}",
+      "description": "Create a bucket in AWS S3",
+      "produces": "application/json",
+      "parameters": [
+        {
+          "name": "bucketName",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "example": "demo-bucket"
+        }
+      ],
+      "response": {
+        "status": 200,
+        "type": "string",
+        "example": "Bucket created successfully"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/upload/file/{bucketName}",
+      "description": "Upload a file to an existing AWS S3 bucket",
+      "consumes": "multipart/form-data",
+      "produces": "application/json",
+      "parameters": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true,
+          "type": "file",
+          "description": "File to upload"
+        },
+        {
+          "name": "bucketName",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "example": "demo-bucket"
+        }
+      ],
+      "response": {
+        "status": 200,
+        "type": "string",
+        "example": "File uploaded successfully"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/delete/file/{bucketName}/{fileName}",
+      "description": "Delete a file from an AWS S3 bucket",
+      "parameters": [
+        {
+          "name": "bucketName",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "example": "demo-bucket"
+        },
+        {
+          "name": "fileName",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "example": "sample.txt"
+        }
+      ],
+      "response": {
+        "status": 200,
+        "type": "string",
+        "example": "File deleted successfully"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/delete/bucket/{bucketName}",
+      "description": "Delete an AWS S3 bucket",
+      "parameters": [
+        {
+          "name": "bucketName",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "example": "demo-bucket"
+        }
+      ],
+      "response": {
+        "status": 200,
+        "type": "string",
+        "example": "Bucket deleted successfully"
+      }
+    }
+  ]
+}

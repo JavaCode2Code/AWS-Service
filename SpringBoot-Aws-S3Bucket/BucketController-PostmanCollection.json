@@ -1,0 +1,77 @@
+{
+  "info": {
+    "_postman_id": "7d17c240-98ee-4a04-b526-1fe7de4e665d",
+    "name": "S3 Bucket Controller",
+    "description": "Postman collection for Spring Boot AWS S3 BucketController endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Bucket",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/add/{{bucketName}}",
+        "description": "Create a new AWS S3 bucket."
+      },
+      "response": []
+    },
+    {
+      "name": "Upload File",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": []
+            }
+          ]
+        },
+        "url": "{{baseUrl}}/upload/file/{{bucketName}}",
+        "description": "Upload a file to the given AWS S3 bucket."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete File",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/delete/file/{{bucketName}}/{{fileName}}",
+        "description": "Delete a file from the given bucket."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Bucket",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/delete/bucket/{{bucketName}}",
+        "description": "Delete an AWS S3 bucket."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/s3bucket",
+      "type": "string"
+    },
+    {
+      "key": "bucketName",
+      "value": "demo-bucket",
+      "type": "string"
+    },
+    {
+      "key": "fileName",
+      "value": "sample.txt",
+      "type": "string"
+    }
+  ]
+}
