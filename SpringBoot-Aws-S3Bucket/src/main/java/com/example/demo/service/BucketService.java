@@ -22,7 +22,7 @@ public class BucketService {
 	@Autowired
 	private FileStore fileStore;
 
-	private final Logger logger = LogManager.getLogger(this.getClass().getName());
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	/**
 	 * Method will download file from S3 and will push content to CloudWatch Logs
