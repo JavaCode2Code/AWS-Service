@@ -26,7 +26,7 @@ public class SNSConfig {
     public AmazonSNS amazonSNS() {
         AmazonSNS amazonSNS = AmazonSNSClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials()))
-                .withRegion(Regions.AF_SOUTH_1)
+                .withRegion(Regions.AP_SOUTH_1)
                 .build();
         return amazonSNS;
     }
