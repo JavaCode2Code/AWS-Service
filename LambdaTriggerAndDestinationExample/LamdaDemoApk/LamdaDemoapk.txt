@@ -1,0 +1,9 @@
+Lamdademoapk:
+
+creating fuction 
+
+edit fuction runtime excution
+
+Handler Info
+
+org.example.handler.LambdaHandler::handleRequest
